@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>上下文菜单示例</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="../src/css/contextMenu.css">-->
+    <link rel="stylesheet" href="../dist/css/contextMenu.min.css">
+    <style type="text/css">
+        html,body,ul,li{
+            margin:0;
+            padding: 0;
+        }
+        body{
+            font:12px Helvetica Neue,Helvetica,PingFang SC,\5FAE\8F6F\96C5\9ED1,Tahoma,Arial,sans-serif;
+        }
+        .box{
+            width: 200px;
+            height:200px;
+            margin:50px auto;
+            text-align: center;
+            line-height: 200px;
+        }
+        #box1{
+            background-color: #d2d2d2;
+        }
+        #box2{
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1">右键点击此区域</div>
+    <div class="box" id="box2">右键点击此区域</div>
+    <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!--<script src="../src/js/contextMenu.js"></script>-->
+    <script src="../dist/js/contextMenu.min.js"></script>
+    <script type="text/javascript">
+        var data = [
+            [
+                {
+                    text: "<i class='fa fa-cut site-cm-icon'></i>剪切（ctrl+x）",
+                    action: function () {
+                        console.log("剪切");
+                    }
+                },
+                {
+                    text: "<i class='fa fa-copy site-cm-icon'></i>复制（ctrl+c）"
+                },
+                {
+                    text: "<i class='fa fa-paste site-cm-icon'></i>粘贴（ctrl+v）",
+                    action: function () {
+                        console.log("粘贴");
+                    }
+                }
+            ],
+            [
+                {
+                    text: "<i class='fa fa-bold site-cm-icon'></i>加粗（ctrl+b）"
+                },
+                {
+                    text: "<i class='fa fa-italic site-cm-icon'></i>斜体（ctrl+i）"
+                },
+                {
+                    text: "<i class='fa fa-underline site-cm-icon'></i>下划线（ctrl+u）"
+                }],
+            [
+                {
+                    text: "<i class='fa fa-font site-cm-icon'></i>字体颜色"
+                }],
+            [
+                {
+                    text: "<i class='fa fa-subscript site-cm-icon'></i>下标（ctrl+=）"
+                },
+                {
+                    text: "<i class='fa fa-superscript site-cm-icon'></i>上标（ctrl+shift++）"
+                }
+            ]
+        ];
+
+        var data2 = [
+            [
+                {
+                    text: "<i class='fa fa-cut site-cm-icon'></i>剪切（ctrl+x）"
+                },
+                {
+                    text: "<i class='fa fa-copy site-cm-icon'></i>复制（ctrl+c）"
+                },
+                {
+                    text: "<i class='fa fa-paste site-cm-icon'></i>粘贴（ctrl+v）"
+                }
+            ]
+        ];
+
+        $("#box1").contextMenu(data);
+        $("#box2").contextMenu(data2, {
+            name: "box2"
+        });
+    </script>
+</body>
+</html>
